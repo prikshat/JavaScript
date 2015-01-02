@@ -1,0 +1,63 @@
+<!--
+   primegen.html
+   
+   Copyright 2015 Unknown <prikshat@arch>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>Prime Numbers Generator</title>
+	<meta charset="utf-8" />	
+	<script type="text/javascript">
+		function getPrimes() {
+			var num = document.getElementById("num").value;
+			var div = document.getElementById("result");
+			
+			for (var i = 2; i <= num; i++) {
+				var isPrime = true;
+				
+				for (var j = 2; j <= Math.sqrt(i); j++) {
+					if (i % j == 0) {
+						isPrime = false;
+						break;
+					}
+				}
+				
+				if (isPrime)
+					div.innerHTML += i + "<br/>"
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h1 align="center">Prime Numbers Generator</h1>
+	<hr>
+	
+	<label for="num">Enter any number: </label>
+	<input id="num" type="text" />
+	<button type="submit" onclick="getPrimes()">Generate</button>
+	
+	<div id="result"></div>
+</body>
+
+</html>
