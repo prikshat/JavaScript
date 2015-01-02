@@ -1,0 +1,60 @@
+<!--
+   objects.html
+   
+   Copyright 2015 Unknown <prikshat@arch>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>Classes &amp; Objects - JavaScript</title>
+	<meta charset="utf-8" />	
+	<script type="text/javascript">
+		function Circle() {}
+		
+		Circle.prototype.radius = 0;
+		
+		Circle.prototype.area = function() {
+			return 3.1415 * this.radius * this.radius;
+		}
+
+		function Square() {}
+		Square.prototype.__proto__ = Circle;
+		
+		Square.prototype.area = function() {
+			return this.radius * this.radius;
+		}
+		
+		var circle = new Circle();
+		circle.radius = 20;
+		document.write(circle.area() + "<br/>");
+		
+		var square = new Square();
+		square.radius = 10;
+		document.write(square.area() + "<br/>");
+</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>
